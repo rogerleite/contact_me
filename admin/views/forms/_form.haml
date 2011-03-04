@@ -1,0 +1,15 @@
+.group
+  =f.label :custom_subject
+  =f.error_message_on :custom_subject
+  =f.text_field :custom_subject, :class => :text_field
+  %span.description Ex: a simple text
+
+.group
+  =f.label :email_to
+  =f.error_message_on :email_to
+  =f.text_field :email_to, :class => :text_field
+  %span.description Ex: a simple text
+
+.group.navform.wat-cf
+  =f.submit pat(:save), :class => :button
+  =f.submit pat(:cancel), :onclick => "window.location='#{url(:forms, :index)}';return false", :class => :button
