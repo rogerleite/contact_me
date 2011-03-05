@@ -15,4 +15,4 @@ gem 'mysql'
 
 
 # Padrino
-gem 'padrino', "0.9.21"
+gem 'padrino', "0.9.22"
