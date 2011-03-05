@@ -1,6 +1,12 @@
 html * {padding: 0; border: none; margin: 0}
+
+div#main {border: thin black dashed; padding: 20px 10px 20px 10px;}
+
 .contact label, .contact input, .contact textarea {display: block; margin-top: .55em}
 .contact input, .contact textarea {width: 320px; padding: 2px 7px; border-width: 1px; border-style: solid; margin-top: -1.3em; margin-left: 70px}
 .contact textarea {height: 14em}
 .contact .button {display: block; margin-top: 10px; width: 55px; padding: 3px 7px; border-width: 1px; border-style: outset;}
 .contact .none {display: none;}
+
+.notice {border: 1px solid #1FDF00; background-color: #BBFFB6;}
+.error {border: 1px solid #fbb; background-color: #fdd;}
