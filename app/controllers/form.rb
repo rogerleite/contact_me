@@ -1,5 +1,9 @@
 ContactMe.controllers :form do
 
+  get :root, :map => "/" do
+    redirect "/admin"
+  end
+
   get(:index, :with => :token) { render_form(:index, params) }
   get(:preview, :with => :token) { render_form(:preview, params) }
 
