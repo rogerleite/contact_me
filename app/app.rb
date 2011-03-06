@@ -1,3 +1,5 @@
+require "base64"
+
 class ContactMe < Padrino::Application
   register Padrino::Mailer
   register Padrino::Helpers
@@ -15,20 +17,29 @@ class ContactMe < Padrino::Application
   # layout  :my_layout          # Layout can be in views/layouts/foo.ext or views/foo.ext (default :application)
   #
 
+  set :delivery_method, :smtp => { 
+    :address              => "smtp.gmail.com",
+    :port                 => 587,
+    :user_name            => 'roger.barreto@gmail.com',
+    :password             => 'password!',
+    :authentication       => :plain,
+    :enable_starttls_auto => true  
+  }
+  set :mailer_defaults, :from => 'roger.barreto@gmail.com'
+
   ##
   # You can configure for a specified environment like:
   #
-  #   configure :development do
-  #     set :foo, :bar
-  #     disable :asset_stamp # no asset timestamping for dev
-  #   end
-  #
+  configure :development do
+    set :delivery_method, :test
+    #disable :asset_stamp # no asset timestamping for dev
+  end
 
   ##
   # You can manage errors like:
   #
-     error 404 do
-       render 'errors/404'
-     end
-  
+  error 404 do
+    render 'errors/404'
+  end
+
 end

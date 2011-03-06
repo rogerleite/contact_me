@@ -27,9 +27,12 @@ ActiveRecord::Schema.define(:version => 3) do
   end
 
   create_table "forms", :force => true do |t|
-    t.string "custom_subject"
-    t.string "email_to"
-    t.string "token"
+    t.string   "subject"
+    t.string   "email_to"
+    t.string   "token"
+    t.integer  "account_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
 end

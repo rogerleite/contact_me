@@ -6,16 +6,16 @@ Admin.controllers :forms do
   end
 
   get :new do
-    @form = Form.new
+    @form = Form.new(:email_to => current_account.email)
     render 'forms/new'
   end
 
   post :create do
     @form = Form.new(params[:form])
-    @form.token = current_account.id
+    @form.account = current_account
     if @form.save
       flash[:notice] = 'Form was successfully created.'
-      redirect url(:forms, :edit, :id => @form.id)
+      redirect url(:forms, :index)
     else
       render 'forms/new'
     end
@@ -30,7 +30,7 @@ Admin.controllers :forms do
     @form = Form.find(params[:id])
     if @form.update_attributes(params[:form])
       flash[:notice] = 'Form was successfully updated.'
-      redirect url(:forms, :edit, :id => @form.id)
+      redirect url(:forms, :index)
     else
       render 'forms/edit'
     end

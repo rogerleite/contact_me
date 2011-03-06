@@ -5,6 +5,7 @@
     %fieldset
       = f.error_messages
       = f.hidden_field :token
+      = hidden_field_tag(:area, :value => "preview") if @area == :preview
 
       =f.label :name
       =f.text_field :name, :class => :text_field
