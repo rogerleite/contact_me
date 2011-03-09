@@ -1,0 +1,12 @@
+pt_br:
+  models:
+    form:
+      name: Formulário
+      attributes:
+        id: Id
+        subject: Assunto
+        email_to: 'Destinatário (e-mail)'
+        token: Token
+        account_id: Account
+        created_at: Created at
+        updated_at: Updated at

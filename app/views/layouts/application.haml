@@ -3,7 +3,8 @@
 %html{:lang => "en", :xmlns => "http://www.w3.org/1999/xhtml"}
   %head
     %meta{:content => "text/html; charset=utf-8", "http-equiv" => "Content-Type"}
-    %title Contact Me - Embedded Form
+    %title
+      =I18n.t("app_title")
     =stylesheet_link_tag :base, "forms/basic.css"
   %body
     #container
@@ -12,6 +13,6 @@
       #footer
         %span.powered-by
           Tecnologia
-          =link_to "Contact Me - Embedded Form", "http://embedded-contact-form.heroku.com"
+          =link_to I18n.t("app_title"), "http://embedded-contact-form.heroku.com"
           Powered by
           =link_to "Padrino v.#{Padrino.version}", "http://padrino.github.com", :target => :_blank

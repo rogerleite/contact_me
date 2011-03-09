@@ -1,0 +1,9 @@
+pt_br:
+  models:
+    contact_form:
+      name: Formulário de Contato
+      attributes:
+        id: Id
+        name: Nome
+        email: "E-mail"
+        message: Mensagem

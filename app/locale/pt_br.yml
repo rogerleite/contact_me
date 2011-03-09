@@ -1,0 +1,6 @@
+pt_br:
+  padrino:
+    admin:
+      show: Visualizar
+
+  app_title: "Contact Me - Embedded Form"
