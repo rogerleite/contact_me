@@ -22,7 +22,7 @@
             %td=form.email_to
             %td=form.token
             %td.last
-              =link_to "Preview", "/form/preview/#{form.token}", :target => "_blank"
+              =link_to "Show", "/form/#{form.token}", :target => "_blank"
               ="|"
               =button_to pat(:edit), url(:forms, :edit, :id => form.id), :method => :get, :class => :button_to
               ="|"

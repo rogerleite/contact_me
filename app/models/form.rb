@@ -10,7 +10,11 @@ class Form < ActiveRecord::Base
 
   def self.find_by_token(token)
     form_id = decode_token(token).first
-    Form.find(form_id)
+    begin
+      Form.find(form_id)
+    rescue ActiveRecord::RecordNotFound
+      nil
+    end
   end
 
   private

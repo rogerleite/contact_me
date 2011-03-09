@@ -4,24 +4,26 @@ ContactMe.controllers :form do
     redirect "/admin"
   end
 
-  get(:index, :with => :token) { render_form(:index, params) }
-  get(:preview, :with => :token) { render_form(:preview, params) }
+  get(:index, :with => :token) do
+    form = Form.find_by_token(params[:token])
+    halt(404) and return if form.nil?
+
+    @contact_form = ContactForm.new(:token => form.token)
+    render 'form/show'
+  end
 
   post :create do
-    @area = params["area"]
-    @area = !!(@area == "preview") ? :preview : :index
-
     @contact_form = ContactForm.new(params[:contact_form])
     @form = Form.find_by_token(@contact_form.token)
-    #area = !!(request.referrer =~ /\/preview\//) ? :preview : :index
+    halt(404) and return if @form.nil?
 
     if @contact_form.valid?
       deliver(:contact, :send_message, @form, @contact_form)
       flash[:notice] = "Sua mensagem foi enviada com sucesso."
-      redirect url(:form, @area, :token => @contact_form.token)
+      redirect url(:form, :show, :token => @contact_form.token)
     else
       flash[:error] = "Nao foi possivel enviar sua mensagem."
-      render 'form/show', :layout => (@area == :preview)
+      render 'form/show'
     end
   end
 

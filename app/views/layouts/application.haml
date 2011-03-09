@@ -3,20 +3,15 @@
 %html{:lang => "en", :xmlns => "http://www.w3.org/1999/xhtml"}
   %head
     %meta{:content => "text/html; charset=utf-8", "http-equiv" => "Content-Type"}
-    %title Contact Me
-    =stylesheet_link_tag :base, "forms/preview_style.css"
+    %title Contact Me - Embedded Form
+    =stylesheet_link_tag :base, "forms/basic.css"
   %body
     #container
-      #header
-        %h1 Contact Me 
-        %h2 Layout Preview Only
-      #wrapper.wat-cf
-        #main
-          =yield
-        #footer
-          .block
-            %p
-              Copyright &copy;
-              =Time.now.year
-              Contact Me - Powered by
-              =link_to "Padrino v.#{Padrino.version}", "http://padrino.github.com", :target => :_blank
+      #main
+        =yield
+      #footer
+        %span.powered-by
+          Tecnologia
+          =link_to "Contact Me - Embedded Form", "http://embedded-contact-form.heroku.com"
+          Powered by
+          =link_to "Padrino v.#{Padrino.version}", "http://padrino.github.com", :target => :_blank
