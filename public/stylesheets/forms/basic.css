@@ -1,14 +1,19 @@
-html * {padding: 0; border: none; margin: 0}
+html * {padding: 0; border: none; margin: 0px; font-family: helvetica, arial, sans-serif;}
 
 div#main {border-bottom: thin black dashed; padding: 20px 10px 20px 10px;}
 
+.contact label {float: left; margin-right: 10px;}
 .contact label, .contact input, .contact textarea {display: block; margin-top: .55em}
-.contact input, .contact textarea {width: 320px; padding: 2px 7px; border-width: 1px; border-style: solid; margin-top: -1.3em; margin-left: 100px}
+.contact input, .contact textarea {width: 320px; padding: 2px 7px; border-width: 1px; border-style: solid; margin-top: 1px; clear: both; margin-bottom: 10px;}
 .contact textarea {height: 14em}
 .contact .button {display: block; margin-top: 10px; width: 55px; padding: 3px 7px; border-width: 1px; border-style: outset;}
 .contact .none {display: none;}
 
 .notice {border: 1px solid #1FDF00; background-color: #BBFFB6;}
-.error {border: 1px solid #fbb; background-color: #fdd;}
+
+div.error {border: 1px solid #fbb; background-color: #fdd; margin-bottom: 10px;}
+span.error {color: #ff0000; font-size: 0.8em; float: left; padding-top: 10px;}
+span.required {color: #790000; font-size: 0.8em;}
+input.invalid, textarea.invalid {border-color: #ff0000;}
 
 span.powered-by {clear: left; color: #666666; display: block; margin: 1em 0.2em 0.2em; font-size: 0.8em;}

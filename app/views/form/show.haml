@@ -3,16 +3,18 @@
   = [:error, :warning, :notice].map { |type| flash_tag(type, :class => "message #{type}") }.join
   -form_for @contact_form, url(:form, :create), :class => :form do |f|
     %fieldset
-      = f.error_messages
       = f.hidden_field :token
 
-      =f.label :name
+      =f.label :name, :required => true
+      =f.error_message_on :name
       =f.text_field :name, :class => :text_field
 
-      =f.label :email
+      =f.label :email, :required => true
+      =f.error_message_on :email
       =f.text_field :email, :class => :text_field
 
-      =f.label :message
+      =f.label :message, :required => true
+      =f.error_message_on :message
       =f.text_area :message, :class => :text_field
 
       %div.none
