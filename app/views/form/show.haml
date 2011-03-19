@@ -1,6 +1,7 @@
 -# coding: utf-8
 %div.contact
   = [:error, :warning, :notice].map { |type| flash_tag(type, :class => "message #{type}") }.join
+  - flash.flag!; flash.sweep!  #workaround to clean flash object
   -form_for @contact_form, url(:form, :create), :class => :form do |f|
     %fieldset
       = f.hidden_field :token
